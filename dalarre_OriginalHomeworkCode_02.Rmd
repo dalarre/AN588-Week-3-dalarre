@@ -34,7 +34,7 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 l <- 15 ## This establishes lambda = 15
 
-ppois(8, l, lower.tail = FALSE) ## This returns the probability that she will hear more than 8 calls during any given session
+ppois(8, l, lower.tail = FALSE) ## This returns the probability that she will hear more than 8 calls during any given session. The lower.tail = FALSE argument makes the function give you the probability of x being greater than 8 instead of lower than 8 which is the default for ppois.
 
 dpois(0,l) ## This returns the probability that she will hear no calls in a session
 
@@ -49,7 +49,8 @@ barplot(y, names.arg = relevant, space = 0, xlab = "Number of calls", ylab = "Pr
 x <- rpois(104,l)
 x
 
-## This plots the simulated results
+## This plots the simulated results. Probability = TRUE makes the function represent the probabilities instead of the frequencies.
 hist(x, breaks = seq(from =0, to = 30, by = 1), probability = TRUE, main = "Plot of 104 simulated results", xlab = "Number of calls", ylab = "Pr(X = Number of calls)", xlim = c(0,30))
 ## The shape of this plot ressembles the probability mass function, but it doesn`t match perfectly.
+
 ```
