@@ -56,4 +56,4 @@ hist(x, breaks = seq(from =0, to = 30, by = 1), probability = TRUE, main = "Plot
 ```
 
 ## CHALLENGES
-I had trouble building the barplot because I didn`t understand what the names.arg argument was. I solved it using ?barplot and reading the information.
+I had trouble building the barplot because I didn't understand what the names.arg argument was. I solved it using ?barplot and reading the information.
