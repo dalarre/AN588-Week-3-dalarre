@@ -1,0 +1,61 @@
+---
+title: "dalarre_OriginalHomeworkCode_02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+##HOMEWORK 02
+
+```{r}
+## After peer commentary I added the name of the arguments in each function to remember what the code does if I ever go back to it.
+
+l <- 15 ## This establishes lambda = 15
+
+ppois(q = 8, lambda = l, lower.tail = FALSE) ## This returns the probability that she will hear more than 8 calls during any given session. The lower.tail = FALSE argument makes the function give you the probability of x being greater than 8 instead of lower than 8 which is the default for ppois.
+
+dpois(x = 0, lambda = l) ## This returns the probability that she will hear no calls in a session
+
+dpois(x = 3, lambda = l) ## This returns the probability that she will hear exactly 3 calls in a session
+
+#This code plots the poisson mass function of the values of x from 0 to 30. After peer commentary I realized that I don't need to create a variable to define the values of the barplot, I can do it directly.
+relevant <- 0:30
+
+barplot(dpois(x = relevant, lambda = l), names.arg = relevant, space = 0, xlab = "Number of calls", ylab = "Pr(X = Number of calls)", main = "Probability Mass Function")
+
+
+##This simulates 104 results from this distribution 
+x <- rpois(n = 104, lambda = l)
+x
+
+## This plots the simulated results. Probability = TRUE makes the function represent the probabilities instead of the frequencies.
+hist(x, breaks = seq(from =0, to = 30, by = 1), probability = TRUE, main = "Plot of 104 simulated results", xlab = "Number of calls", ylab = "Pr(X = Number of calls)", xlim = c(0,30))
+## The shape of this plot ressembles the probability mass function, but it doesn`t match perfectly.
+
+```
+
+## CHALLENGES
+I had trouble building the barplot because I didn't understand what the names.arg argument was. I solved it using ?barplot and reading the information.
